@@ -192,7 +192,7 @@ Authorization: Bearer <token>
 ## 后端 API 基础路径
 
 ```
-http://101.133.153.116:8080/api
+http://127.0.0.1:8080/api
 ```
 
 前端 `src/api/request.ts` 中配置的 `BASE_URL`。
