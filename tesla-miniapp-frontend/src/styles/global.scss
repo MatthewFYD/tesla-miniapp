@@ -1,0 +1,311 @@
+// ====================================
+// 全局样式
+// ====================================
+@import './variables.scss';
+@import './mixins.scss';
+
+// ============ 重置样式 ============
+page, view, text, image, button, input, textarea, scroll-view {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+view, text {
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ============ 文字工具类 ============
+.text-primary { color: $color-primary; }
+.text-secondary { color: $color-text-secondary; }
+.text-tertiary { color: $color-text-tertiary; }
+.text-white { color: $color-text-inverse; }
+.text-success { color: $color-success; }
+.text-warning { color: $color-warning; }
+.text-error { color: $color-error; }
+
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-md { font-size: $font-size-md; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+
+.text-normal { font-weight: $font-weight-normal; }
+.text-medium { font-weight: $font-weight-medium; }
+.text-semibold { font-weight: $font-weight-semibold; }
+.text-bold { font-weight: $font-weight-bold; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// ============ 布局工具类 ============
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.flex-1 { flex: 1; }
+.flex-auto { flex: auto; }
+
+// ============ 间距工具类 ============
+.p-xs { padding: $spacing-xs; }
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
+.p-xl { padding: $spacing-xl; }
+
+.px-page { padding-left: $page-padding; padding-right: $page-padding; }
+.py-lg { padding-top: $spacing-lg; padding-bottom: $spacing-lg; }
+
+.m-xs { margin: $spacing-xs; }
+.m-sm { margin: $spacing-sm; }
+.m-md { margin: $spacing-md; }
+.m-lg { margin: $spacing-lg; }
+.m-xl { margin: $spacing-xl; }
+
+.mt-xs { margin-top: $spacing-xs; }
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+.mb-xs { margin-bottom: $spacing-xs; }
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+// ============ 背景工具类 ============
+.bg-primary { background-color: $color-primary; }
+.bg-surface { background-color: $color-surface; }
+.bg-page { background-color: $color-background; }
+
+// ============ 圆角工具类 ============
+.rounded-sm { border-radius: $radius-sm; }
+.rounded-md { border-radius: $radius-md; }
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-full { border-radius: $radius-full; }
+
+// ============ 阴影工具类 ============
+.shadow-sm { box-shadow: $shadow-sm; }
+.shadow-md { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+.shadow-card { box-shadow: $shadow-card; }
+
+// ============ 卡片基础样式 ============
+.card {
+  background-color: $color-surface;
+  border-radius: $radius-lg;
+  padding: $card-padding;
+  box-shadow: $shadow-card;
+}
+
+// ============ 页面容器 ============
+.page-container {
+  min-height: 100vh;
+  background-color: $color-background;
+  padding: $page-padding;
+  padding-bottom: calc(#{$tabbar-height} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{$tabbar-height} + env(safe-area-inset-bottom));
+}
+
+.page-full {
+  min-height: 100vh;
+  background-color: $color-background;
+}
+
+// ============ 按钮样式 ============
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  transition: all $transition-fast;
+  border: none;
+  outline: none;
+  
+  &::after {
+    border: none;
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+  background: $color-primary-gradient;
+  color: $color-text-inverse;
+  height: $button-height-lg;
+  font-size: $font-size-md;
+  
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  background-color: $color-surface;
+  color: $color-primary;
+  border: 2rpx solid $color-primary;
+  height: $button-height-md;
+  font-size: $font-size-base;
+  
+  &:active {
+    background-color: rgba($color-primary, 0.05);
+  }
+}
+
+.btn-text {
+  @extend .btn;
+  background-color: transparent;
+  color: $color-primary;
+  padding: $spacing-sm $spacing-md;
+}
+
+// ============ 输入框样式 ============
+.input {
+  width: 100%;
+  height: $input-height;
+  background-color: $color-surface-secondary;
+  border-radius: $radius-md;
+  padding: 0 $spacing-lg;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  border: 2rpx solid transparent;
+  transition: all $transition-fast;
+  
+  &:focus {
+    border-color: $color-primary;
+    background-color: $color-surface;
+  }
+  
+  &::placeholder {
+    color: $color-text-tertiary;
+  }
+}
+
+// ============ 分割线 ============
+.divider {
+  height: 2rpx;
+  background-color: $color-border-light;
+  margin: $spacing-lg 0;
+}
+
+// ============ 徽章 ============
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+.badge-primary {
+  @extend .badge;
+  background-color: rgba($color-primary, 0.1);
+  color: $color-primary;
+}
+
+.badge-success {
+  @extend .badge;
+  background-color: rgba($color-success, 0.1);
+  color: $color-success;
+}
+
+// ============ 加载状态 ============
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xl;
+}
+
+// ============ 空状态 ============
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3xl $spacing-xl;
+  
+  &__icon {
+    font-size: 128rpx;
+    color: $color-text-tertiary;
+    margin-bottom: $spacing-lg;
+  }
+  
+  &__text {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    text-align: center;
+  }
+}
+
+// ============ 列表项 ============
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  background-color: $color-surface;
+  border-bottom: 2rpx solid $color-border-light;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:active {
+    background-color: $color-surface-secondary;
+  }
+}
+
+// ============ 动画 ============
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn $transition-normal;
+}
+
+.animate-slide-up {
+  animation: slideUp $transition-normal;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}

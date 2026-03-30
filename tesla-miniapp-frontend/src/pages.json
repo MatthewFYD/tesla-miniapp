@@ -1,0 +1,103 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/dashboard/dashboard",
+      "style": {
+        "navigationBarTitleText": "控制面板",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/charging/charging",
+      "style": {
+        "navigationBarTitleText": "充电记录",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/trips/trips",
+      "style": {
+        "navigationBarTitleText": "行程记录",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/trip-detail/trip-detail",
+      "style": {
+        "navigationBarTitleText": "行程详情",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/insights/insights",
+      "style": {
+        "navigationBarTitleText": "数据洞察",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/charging-detail/charging-detail",
+      "style": {
+        "navigationBarTitleText": "充电详情",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "电车助理",
+    "navigationBarBackgroundColor": "#f8f9fa",
+    "backgroundColor": "#f8f9fa",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#5a6062",
+    "selectedColor": "#006e37",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/dashboard/dashboard",
+        "text": "控制台",
+        "iconPath": "static/icons/dashboard.png",
+        "selectedIconPath": "static/icons/dashboard-active.png"
+      },
+      {
+        "pagePath": "pages/trips/trips",
+        "text": "行程",
+        "iconPath": "static/icons/route.png",
+        "selectedIconPath": "static/icons/route-active.png"
+      },
+      {
+        "pagePath": "pages/charging/charging",
+        "text": "充电",
+        "iconPath": "static/icons/charging.png",
+        "selectedIconPath": "static/icons/charging-active.png"
+      },
+      {
+        "pagePath": "pages/insights/insights",
+        "text": "洞察",
+        "iconPath": "static/icons/insights.png",
+        "selectedIconPath": "static/icons/insights-active.png"
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^tv-(.*)": "@/components/tv-$1/tv-$1.vue"
+    }
+  }
+}
