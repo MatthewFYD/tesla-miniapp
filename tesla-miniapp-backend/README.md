@@ -144,7 +144,7 @@ GET /charging/stats/monthly        # 月度统计
 ```yaml
 spring:
   datasource:
-    url: jdbc:postgresql://101.133.153.116:5432/teslamate
+    url: jdbc:postgresql://127.0.0.1:5432/teslamate
     username: teslamate  
     password: 123456
 
